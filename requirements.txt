@@ -1,0 +1,58 @@
+# Core dependencies
+numpy>=1.19.0
+opencv-python>=4.5.0
+opencv-contrib-python==4.8.1.78
+
+
+### OPTIONAL IF NOT RUNNING
+# pip install pycparser
+# https://visualstudio.microsoft.com/visual-cpp-build-tools/
+# https://www.python.org/downloads/release/python-3110/
+# python fix_all_imports.py
+# python start.py
+# python fix_drawtext.py
+# python fix_all_issues.py
+# python fix_webcam.py
+
+# GUI and visualization
+PyQt5>=5.15.0
+PyOpenGL>=3.1.0
+pyqtgraph==0.13.3
+
+# Rubik's cube solving
+kociemba>=1.2.1
+
+# Image processing
+Pillow>=8.0.0
+scikit-image==0.21.0
+
+# Color processing
+colormath==3.0.0
+webcolors==1.13
+
+# Utilities
+scipy==1.11.4
+matplotlib==3.7.2
+
+# Configuration and data
+pyyaml==6.0.1
+jsonschema==4.19.2
+
+# Development tools (optional)
+pytest==7.4.3
+pytest-cov==4.1.0
+black==23.11.0
+flake8==6.1.0
+
+# Performance optimization
+numba==0.58.1
+cython==3.0.5
+
+# Internationalization
+babel==2.13.1
+
+# Logging
+colorlog==6.7.0
+
+# File handling
+watchdog==3.0.0

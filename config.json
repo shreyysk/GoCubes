@@ -1,0 +1,260 @@
+{
+  "scanner": {
+    "camera_index": 0,
+    "camera_width": 640,
+    "camera_height": 480,
+    "fps": 30,
+    "detection_threshold": 30,
+    "sticker_area_tile_size": 30,
+    "sticker_area_tile_gap": 4,
+    "sticker_area_offset": 20,
+    "mini_sticker_area_tile_size": 14,
+    "mini_sticker_area_tile_gap": 2,
+    "mini_sticker_area_offset": 20,
+    "color_detection_method": "CIEDE2000",
+    "average_color_rounds": 8,
+    "contour_approximation": 0.1,
+    "min_contour_area": 30,
+    "max_contour_area": 60,
+    "aspect_ratio_min": 0.8,
+    "aspect_ratio_max": 1.2,
+    "calibration_samples": 20,
+    "auto_detect": true,
+    "preview_enabled": true
+  },
+  
+  "solver": {
+    "default_algorithm": "kociemba",
+    "algorithms": {
+      "kociemba": {
+        "enabled": true,
+        "max_depth": 25,
+        "timeout": 10,
+        "use_tables": true,
+        "phase1_max": 12,
+        "phase2_max": 18
+      },
+      "thistlethwaite": {
+        "enabled": true,
+        "max_depth": 45,
+        "timeout": 15,
+        "use_pruning": true,
+        "subgroups": ["G0", "G1", "G2", "G3"]
+      },
+      "optimal": {
+        "enabled": false,
+        "max_depth": 20,
+        "timeout": 60
+      }
+    },
+    "optimization": {
+      "reduce_moves": true,
+      "combine_rotations": true,
+      "cancel_opposites": true,
+      "use_wide_moves": false,
+      "metric": "HTM"
+    },
+    "pruning_tables": {
+      "generate_on_start": false,
+      "cache_directory": "tables/",
+      "compression": true,
+      "memory_limit_mb": 512
+    }
+  },
+  
+  "visualization": {
+    "default_view": "3d",
+    "animation_speed": 500,
+    "animation_enabled": true,
+    "smooth_animation": true,
+    "cube_size": 300,
+    "sticker_gap": 0.15,
+    "rounded_stickers": true,
+    "show_labels": true,
+    "show_axes": false,
+    "perspective_fov": 45,
+    "rotation_sensitivity": 1.0,
+    "zoom_sensitivity": 0.1,
+    "auto_rotate": false,
+    "anti_aliasing": true,
+    "shadows": true,
+    "reflection": false,
+    "background_color": [0.2, 0.2, 0.2],
+    "lighting": {
+      "ambient": [0.3, 0.3, 0.3],
+      "diffuse": [1.0, 1.0, 1.0],
+      "specular": [0.35, 0.35, 0.35],
+      "position": [0.0, 10.0, 20.0]
+    }
+  },
+  
+  "colors": {
+    "scheme": "standard",
+    "themes": {
+      "standard": {
+        "white": [255, 255, 255],
+        "yellow": [255, 255, 0],
+        "red": [255, 0, 0],
+        "orange": [255, 165, 0],
+        "green": [0, 255, 0],
+        "blue": [0, 0, 255]
+      },
+      "custom": {
+        "white": [255, 255, 255],
+        "yellow": [255, 213, 0],
+        "red": [196, 30, 58],
+        "orange": [255, 88, 0],
+        "green": [0, 155, 72],
+        "blue": [0, 70, 173]
+      },
+      "stickerless": {
+        "white": [255, 255, 255],
+        "yellow": [255, 236, 0],
+        "red": [220, 66, 47],
+        "orange": [255, 138, 0],
+        "green": [0, 188, 69],
+        "blue": [51, 115, 255]
+      }
+    },
+    "border_color": [30, 30, 30],
+    "background_color": [204, 204, 204],
+    "text_color": [0, 0, 0]
+  },
+  
+  "interface": {
+    "language": "en",
+    "theme": "dark",
+    "font_family": "Arial",
+    "font_size": 12,
+    "show_toolbar": true,
+    "show_statusbar": true,
+    "show_solution_panel": true,
+    "show_timer": true,
+    "show_move_count": true,
+    "compact_mode": false,
+    "fullscreen_on_start": false,
+    "confirm_exit": true,
+    "auto_save": true,
+    "recent_files_limit": 10,
+    "tooltips_enabled": true,
+    "sound_enabled": true,
+    "sound_volume": 0.5
+  },
+  
+  "keyboard_shortcuts": {
+    "new_scan": "Ctrl+N",
+    "open_file": "Ctrl+O",
+    "save_solution": "Ctrl+S",
+    "quit": "Ctrl+Q",
+    "undo": "Ctrl+Z",
+    "redo": "Ctrl+Y",
+    "copy": "Ctrl+C",
+    "paste": "Ctrl+V",
+    "solve": "F5",
+    "reset": "F6",
+    "shuffle": "F7",
+    "calibrate": "F8",
+    "help": "F1",
+    "fullscreen": "F11",
+    "toggle_view": "Tab",
+    "play_pause": "Space",
+    "next_move": "Right",
+    "previous_move": "Left",
+    "speed_up": "Plus",
+    "slow_down": "Minus"
+  },
+  
+  "moves": {
+    "notation": "standard",
+    "wide_moves_enabled": false,
+    "slice_moves_enabled": false,
+    "rotation_notation": "xyz",
+    "lowercase_prime": false,
+    "move_history_limit": 1000,
+    "undo_limit": 50
+  },
+  
+  "scramble": {
+    "default_length": 25,
+    "min_length": 10,
+    "max_length": 100,
+    "avoid_repetition": true,
+    "wca_scramble": true,
+    "show_scramble_info": true
+  },
+  
+  "timer": {
+    "inspection_time": 15,
+    "show_milliseconds": true,
+    "countdown_sound": true,
+    "auto_start": false,
+    "penalties_enabled": true,
+    "save_times": true,
+    "statistics_enabled": true
+  },
+  
+  "export": {
+    "default_format": "txt",
+    "include_timestamp": true,
+    "include_scramble": true,
+    "include_solution": true,
+    "include_statistics": true,
+    "formats": {
+      "txt": {
+        "enabled": true,
+        "extension": ".txt"
+      },
+      "json": {
+        "enabled": true,
+        "extension": ".json",
+        "pretty_print": true
+      },
+      "html": {
+        "enabled": true,
+        "extension": ".html",
+        "include_visualization": true
+      },
+      "pdf": {
+        "enabled": false,
+        "extension": ".pdf"
+      }
+    }
+  },
+  
+  "performance": {
+    "multi_threading": true,
+    "thread_count": 4,
+    "gpu_acceleration": false,
+    "cache_solutions": true,
+    "cache_size_mb": 100,
+    "low_memory_mode": false,
+    "debug_mode": false,
+    "logging_enabled": true,
+    "log_level": "INFO",
+    "log_file": "rubik_ultimate.log",
+    "profiling_enabled": false
+  },
+  
+  "network": {
+    "check_updates": true,
+    "auto_update": false,
+    "api_endpoint": "https://api.rubik-ultimate.com",
+    "timeout": 30,
+    "retry_count": 3,
+    "offline_mode": false
+  },
+  
+  "advanced": {
+    "developer_mode": false,
+    "experimental_features": false,
+    "custom_algorithms": false,
+    "plugin_support": false,
+    "scripting_enabled": false,
+    "console_output": false,
+    "verbose_errors": false,
+    "crash_reports": true,
+    "analytics": false,
+    "first_run": true,
+    "version": "1.0.0"
+  }
+}

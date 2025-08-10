@@ -1,0 +1,22 @@
+{
+  "language_name": "English",
+  "app_name": "Rubik Ultimate Solver",
+  "solve": "Solve",
+  "solution": "Solution",
+  "moves": "Moves",
+  "time": "Time",
+  "scanner": "Scanner",
+  "camera": "Camera",
+  "settings": "Settings",
+  "help": "Help",
+  "about": "About",
+  "ready": "Ready",
+  "file": "File",
+  "edit": "Edit",
+  "view": "View",
+  "tools": "Tools",
+  "new": "New",
+  "open": "Open",
+  "save": "Save",
+  "quit": "Quit"
+}
