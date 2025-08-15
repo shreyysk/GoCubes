@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block title %}Solver - Rubik's Cube Solver{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="mb-4">
+            <i class="fas fa-puzzle-piece"></i> Cube Solver
+        </h2>
+        
+        <ul class="nav nav-tabs" id="inputTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="manual-tab" data-bs-toggle="tab" data-bs-target="#manual" type="button">
+                    <i class="fas fa-hand-pointer"></i> Manual Input
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="camera-tab" data-bs-toggle="tab" data-bs-target="#camera" type="button">
+                    <i class="fas fa-camera"></i> Camera Scan
+                </button>
+            </li>
+        </ul>
+        
+        <div class="tab-content mt-4" id="inputTabContent">
+            <div class="tab-pane fade show active" id="manual" role="tabpanel">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h4>Select Colors for Each Face</h4>
+                        <p>Click on each sticker to set its color. The center colors are fixed.</p>
+                        
+                        <div class="mb-3">
+                            <strong>Current Color:</strong>
+                            <div class="btn-group" role="group" id="colorPalette">
+                                <button type="button" class="btn btn-light color-btn" data-color="W"><span class="badge bg-white text-dark">White</span></button>
+                                <button type="button" class="btn btn-light color-btn" data-color="Y"><span class="badge bg-warning">Yellow</span></button>
+                                <button type="button" class="btn btn-light color-btn" data-color="R"><span class="badge bg-danger">Red</span></button>
+                                <button type="button" class="btn btn-light color-btn" data-color="O"><span class="badge" style="background-color: #fd7e14;">Orange</span></button>
+                                <button type="button" class="btn btn-light color-btn" data-color="G"><span class="badge bg-success">Green</span></button>
+                                <button type="button" class="btn btn-light color-btn active" data-color="B"><span class="badge bg-primary">Blue</span></button>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <div class="text-center p-2">
+                                <h5>Up (White)</h5>
+                                <div class="cube-face-grid" data-face="up">
+                                    <div class="cube-sticker sticker-W" data-index="0"></div><div class="cube-sticker sticker-W" data-index="1"></div><div class="cube-sticker sticker-W" data-index="2"></div>
+                                    <div class="cube-sticker sticker-W" data-index="3"></div><div class="cube-sticker sticker-W" data-index="4" style="cursor: not-allowed;">W</div><div class="cube-sticker sticker-W" data-index="5"></div>
+                                    <div class="cube-sticker sticker-W" data-index="6"></div><div class="cube-sticker sticker-W" data-index="7"></div><div class="cube-sticker sticker-W" data-index="8"></div>
+                                </div>
+                            </div>
+                             <div class="text-center p-2">
+                                <h5>Left (Green)</h5>
+                                <div class="cube-face-grid" data-face="left">
+                                    <div class="cube-sticker sticker-G" data-index="0"></div><div class="cube-sticker sticker-G" data-index="1"></div><div class="cube-sticker sticker-G" data-index="2"></div>
+                                    <div class="cube-sticker sticker-G" data-index="3"></div><div class="cube-sticker sticker-G" data-index="4" style="cursor: not-allowed;">G</div><div class="cube-sticker sticker-G" data-index="5"></div>
+                                    <div class="cube-sticker sticker-G" data-index="6"></div><div class="cube-sticker sticker-G" data-index="7"></div><div class="cube-sticker sticker-G" data-index="8"></div>
+                                </div>
+                            </div>
+                             <div class="text-center p-2">
+                                <h5>Front (Red)</h5>
+                                <div class="cube-face-grid" data-face="front">
+                                    <div class="cube-sticker sticker-R" data-index="0"></div><div class="cube-sticker sticker-R" data-index="1"></div><div class="cube-sticker sticker-R" data-index="2"></div>
+                                    <div class="cube-sticker sticker-R" data-index="3"></div><div class="cube-sticker sticker-R" data-index="4" style="cursor: not-allowed;">R</div><div class="cube-sticker sticker-R" data-index="5"></div>
+                                    <div class="cube-sticker sticker-R" data-index="6"></div><div class="cube-sticker sticker-R" data-index="7"></div><div class="cube-sticker sticker-R" data-index="8"></div>
+                                </div>
+                            </div>
+                            <div class="text-center p-2">
+                                <h5>Right (Blue)</h5>
+                                <div class="cube-face-grid" data-face="right">
+                                    <div class="cube-sticker sticker-B" data-index="0"></div><div class="cube-sticker sticker-B" data-index="1"></div><div class="cube-sticker sticker-B" data-index="2"></div>
+                                    <div class="cube-sticker sticker-B" data-index="3"></div><div class="cube-sticker sticker-B" data-index="4" style="cursor: not-allowed;">B</div><div class="cube-sticker sticker-B" data-index="5"></div>
+                                    <div class="cube-sticker sticker-B" data-index="6"></div><div class="cube-sticker sticker-B" data-index="7"></div><div class="cube-sticker sticker-B" data-index="8"></div>
+                                </div>
+                            </div>
+                            <div class="text-center p-2">
+                                <h5>Back (Orange)</h5>
+                                <div class="cube-face-grid" data-face="back">
+                                    <div class="cube-sticker sticker-O" data-index="0"></div><div class="cube-sticker sticker-O" data-index="1"></div><div class="cube-sticker sticker-O" data-index="2"></div>
+                                    <div class="cube-sticker sticker-O" data-index="3"></div><div class="cube-sticker sticker-O" data-index="4" style="cursor: not-allowed;">O</div><div class="cube-sticker sticker-O" data-index="5"></div>
+                                    <div class="cube-sticker sticker-O" data-index="6"></div><div class="cube-sticker sticker-O" data-index="7"></div><div class="cube-sticker sticker-O" data-index="8"></div>
+                                </div>
+                            </div>
+                            <div class="text-center p-2">
+                                <h5>Down (Yellow)</h5>
+                                <div class="cube-face-grid" data-face="down">
+                                    <div class="cube-sticker sticker-Y" data-index="0"></div><div class="cube-sticker sticker-Y" data-index="1"></div><div class="cube-sticker sticker-Y" data-index="2"></div>
+                                    <div class="cube-sticker sticker-Y" data-index="3"></div><div class="cube-sticker sticker-Y" data-index="4" style="cursor: not-allowed;">Y</div><div class="cube-sticker sticker-Y" data-index="5"></div>
+                                    <div class="cube-sticker sticker-Y" data-index="6"></div><div class="cube-sticker sticker-Y" data-index="7"></div><div class="cube-sticker sticker-Y" data-index="8"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                         <div class="mt-4 p-3 bg-light rounded">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary btn-lg" id="solveCubeBtn"><i class="fas fa-magic"></i> Solve Cube</button>
+                                <button class="btn btn-secondary" id="resetCubeBtn"><i class="fas fa-undo"></i> Reset All</button>
+                                <button class="btn btn-info" id="randomScrambleBtn"><i class="fas fa-random"></i> Random Scramble</button>
+                            </div>
+                        </div>
+                        <div class="card mt-3">
+                            <div class="card-header bg-secondary text-white"><i class="fas fa-calculator"></i> Color Counter</div>
+                            <div class="card-body" id="colorCounter">
+                                <div class="d-flex justify-content-between mb-2"><span><span class="badge bg-white text-dark">W</span> White:</span><span id="countW">9</span>/9</div>
+                                <div class="d-flex justify-content-between mb-2"><span><span class="badge bg-warning">Y</span> Yellow:</span><span id="countY">9</span>/9</div>
+                                <div class="d-flex justify-content-between mb-2"><span><span class="badge bg-danger">R</span> Red:</span><span id="countR">9</span>/9</div>
+                                <div class="d-flex justify-content-between mb-2"><span><span class="badge" style="background-color: #fd7e14;">O</span> Orange:</span><span id="countO">9</span>/9</div>
+                                <div class="d-flex justify-content-between mb-2"><span><span class="badge bg-success">G</span> Green:</span><span id="countG">9</span>/9</div>
+                                <div class="d-flex justify-content-between"><span><span class="badge bg-primary">B</span> Blue:</span><span id="countB">9</span>/9</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-pane fade" id="camera" role="tabpanel">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="row">
+                            {% for face_key, face_name in zip(scanOrder, scanFaceNames) %}
+                            <div class="col-md-4 mb-3">
+                                <div class="upload-area" data-face="{{ face_key }}">
+                                    <div class="upload-area-content">
+                                        <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                                        <h5>{{ face_name }}</h5>
+                                        <p>Click to upload image</p>
+                                        <input type="file" class="face-upload" id="{{ face_key }}-upload" accept="image/*" style="display: none;">
+                                        <img class="preview-img d-none">
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                         <div class="p-3 bg-light rounded">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary btn-lg" id="processImagesBtn"><i class="fas fa-camera"></i> Scan with Camera</button>
+                            </div>
+                             <div class="card mt-3">
+                                <div class="card-header bg-warning"><i class="fas fa-lightbulb"></i> Tips for Best Results</div>
+                                <div class="card-body"><ul class="mb-0 small"><li>Use good, even lighting.</li><li>Avoid shadows and glare.</li><li>Keep the cube face parallel to the camera.</li><li>Ensure all 9 stickers are clearly visible.</li><li>Use a plain, contrasting background.</li></ul></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="solution-display d-none mt-4" id="solutionDisplay">
+            <h3><i class="fas fa-check-circle text-success"></i> Solution Found!</h3>
+            <p><strong>Move Count:</strong> <span id="moveCount">0</span> moves</p>
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="solution-moves-container">
+                        <div class="solution-moves" id="solutionMoves"></div>
+                    </div>
+                    <div class="mt-3" id="animationControls">
+                        <button class="btn btn-success" id="playBtn" title="Play Animation"><i class="fas fa-play"></i> Play</button>
+                        <button class="btn btn-warning" id="pauseBtn" title="Pause Animation" disabled><i class="fas fa-pause"></i> Pause</button>
+                        <button class="btn btn-danger" id="resetAnimationBtn" title="Reset Animation"><i class="fas fa-undo"></i> Reset</button>
+                        <button class="btn btn-secondary" id="prevStepBtn" title="Previous Move"><i class="fas fa-step-backward"></i></button>
+                        <button class="btn btn-secondary" id="nextStepBtn" title="Next Move"><i class="fas fa-step-forward"></i></button>
+                    </div>
+                </div>
+                <div class="col-lg-5 mt-3 mt-lg-0">
+                    <div id="cube3d-container" class="cube-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/cube_model.js') }}"></script>
+<script src="{{ url_for('static', filename='js/cube3d.js') }}"></script>
+<script src="{{ url_for('static', filename='js/solver.js') }}"></script>
+{% endblock %}

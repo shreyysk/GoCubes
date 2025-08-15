@@ -1,0 +1,181 @@
+/* Main Styles for the Rubik's Cube Solver App */
+
+:root {
+    --primary-color: #0d6efd;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+    --success-color: #198754;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    
+    /* Cube sticker colors */
+    --cube-W: #ffffff;
+    --cube-Y: #ffc107;
+    --cube-R: #dc3545;
+    --cube-O: #fd7e14;
+    --cube-G: #198754;
+    --cube-B: #0d6efd;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-color);
+}
+
+main {
+    flex: 1;
+}
+
+.jumbotron {
+    background-color: white;
+    padding: 4rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: .3rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
+}
+
+/* Rotating cube animation */
+@keyframes rotate {
+    from { transform: rotateY(0deg) rotateX(10deg); }
+    to { transform: rotateY(360deg) rotateX(10deg); }
+}
+
+.rotating-cube {
+    display: inline-block;
+    animation: rotate 5s linear infinite;
+    transform-style: preserve-3d;
+}
+
+/* Cube face grid for manual input */
+.cube-face-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 45px);
+    grid-template-rows: repeat(3, 45px);
+    gap: 3px;
+    background: #333;
+    padding: 5px;
+    border-radius: 5px;
+    display: inline-grid;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+}
+
+.cube-sticker {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #000;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    border-radius: 4px;
+}
+
+.cube-sticker:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    z-index: 10;
+}
+
+/* Sticker colors */
+.sticker-W { background-color: var(--cube-W); color: #333; }
+.sticker-Y { background-color: var(--cube-Y); color: #333; }
+.sticker-R { background-color: var(--cube-R); }
+.sticker-O { background-color: var(--cube-O); }
+.sticker-G { background-color: var(--cube-G); }
+.sticker-B { background-color: var(--cube-B); }
+
+/* File upload area */
+.upload-area {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    text-align: center;
+    background: #fdfdff;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 150px;
+}
+.upload-area:hover {
+    background: #eef4ff;
+    border-color: var(--primary-color);
+}
+.upload-area-content {
+    padding: 10px;
+}
+.upload-icon {
+    font-size: 2.5rem;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+.upload-area .preview-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+/* Solution display section */
+.solution-display {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
+}
+.solution-moves-container {
+    background-color: #f0f2f5;
+    border-radius: 5px;
+    padding: 15px;
+    max-height: 220px;
+    overflow-y: auto;
+}
+.solution-moves {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.move-badge {
+    padding: 5px 12px;
+    background: var(--dark-color);
+    color: white;
+    border-radius: 15px;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.1rem;
+    transition: all 0.2s;
+}
+.move-badge.active-move {
+    background: var(--primary-color);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+#animationControls button {
+    margin-right: 5px;
+}
+
+/* 3D Cube Container */
+.cube-container {
+    width: 100%;
+    min-height: 280px;
+    border-radius: 10px;
+    background: radial-gradient(circle, rgba(248,249,250,1) 0%, rgba(220,223,226,1) 100%);
+    cursor: grab;
+}
+.cube-container:grabbing {
+    cursor: grabbing;
+}
