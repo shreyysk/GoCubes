@@ -597,4 +597,5 @@ class CubeModel:
         
         # Basic solvability is assumed if colors are correct
         # The kociemba solver will catch truly unsolvable states
+
         return True, None
