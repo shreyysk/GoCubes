@@ -106,11 +106,15 @@ python main.py -m
 
   
 python -m venv env
+
 env\Scripts\activate
+
 pip install -r requirements.txt
+
 python src\main.py
 
 
 
 # First time: Calibrate colors for your lighting
+
 python src\main.py --c
